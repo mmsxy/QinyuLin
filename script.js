@@ -1,6 +1,4 @@
-// 新增代码 - Gemini API 配置
-const GEMINI_API_KEY = "AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8"; // 替换为你的实际API Key
-const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8}`;
+
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -25,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
+    // 新增代码 - Gemini API 配置
+    const GEMINI_API_KEY = "AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8"; // 替换为你的实际API Key
+    const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8}`;
 
     // Event Listeners
     startBtn.addEventListener('click', startSimulation);
