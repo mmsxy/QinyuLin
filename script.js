@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     // DOM Elements
     const welcomeScreen = document.getElementById('welcomeScreen');
@@ -23,9 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatMessages = document.getElementById('chatMessages');
     const userInput = document.getElementById('userInput');
     const sendBtn = document.getElementById('sendBtn');
-    // 新增代码 - Gemini API 配置
-    const GEMINI_API_KEY = "AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8"; // 替换为你的实际API Key
-    const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AIzaSyB8IrS_Uqwey2Jma0qRV9EirblAAmAnNj8}`;
 
     // Event Listeners
     startBtn.addEventListener('click', startSimulation);
@@ -248,36 +242,18 @@ function sendMessage() {
         userInput.value = '';
         
         // Simulate AI response (in a real app, this would call an API)
-        async function sendMessage() {
-    const message = userInput.value.trim();
-    if (message) {
-        addUserMessage(message);
-        userInput.value = '';
-        
-        // 新增代码 - 调用真实Gemini API
-        try {
-            const response = await fetch(GEMINI_API_URL, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    contents: [{
-                        parts: [{
-                            text: `你是一个创业顾问，请用简短专业的中文回答以下问题：${message}`
-                        }]
-                    }]
-                })
-            });
-            
-            const data = await response.json();
-            const aiResponse = data.candidates[0].content.parts[0].text;
-            addAIMessage(aiResponse);
-            
-        } catch (error) {
-            addAIMessage("抱歉，AI服务暂时不可用，请稍后再试。");
-            console.error("API调用失败:", error);
-        }
+        setTimeout(() => {
+            const responses = [
+                "That's an interesting question about entrepreneurship. Based on your earlier choices, I'd recommend...",
+                "Many entrepreneurs face similar challenges. Have you considered...",
+                "Great question! For a business with your configuration, the best approach might be...",
+                "Let me analyze that. Based on market trends and your setup, I suggest...",
+                "That's a key strategic consideration. The data suggests that..."
+            ];
+            const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+            addAIMessage(randomResponse);
+        }, 1000);
     }
 }
-        
     
 });
